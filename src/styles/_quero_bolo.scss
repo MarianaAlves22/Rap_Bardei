@@ -1,0 +1,56 @@
+@use 'variables';
+
+.quero-bolo {
+    padding: 80px 0;
+
+    &--gostoso {
+        background-image: linear-gradient(variables.$red, variables.$purple);
+    }
+
+    &--obrigado {
+        background-image: linear-gradient(variables.$purple, variables.$blue);
+    }
+
+    &--image-left {
+        .container {
+            flex-direction: row-reverse;
+        }
+    }
+
+    .container {
+        display: flex;
+        gap: 40px;
+    }
+
+    &__image {
+        max-width: 360px;
+    }
+
+    &__mesmo {
+
+        &__title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        &__text {
+            line-height: 22px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .container {
+            display: block;
+        }
+
+        &__image {
+            width: 100%;
+        }
+
+        &__mesmo {
+            margin-right: 0;
+            margin-bottom: 16px;
+        }
+    }
+}
