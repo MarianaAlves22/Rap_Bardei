@@ -10,10 +10,15 @@ const contaOsDias = setInterval(function() {
     const diasAteAniversario = timeStampAniversario - timeStampAtual;
 
     const diasEmMs = 1000 * 60 * 60 * 24;
+    const horaEmMs = 1000 * 60 * 60;
+    const minutosEmMs = 1000 * 60;
 
     const distanciaAteAniversario = Math.floor(diasAteAniversario / diasEmMs);
+    const horaAteAniversario = Math.floor((diasAteAniversario % diasEmMs) / horaEmMs);
+    const MinutosAteAniversario = Math.floor((diasAteAniversario % horaEmMs) / minutosEmMs);
+    const segundosAteAniversario = Math.floor((diasAteAniversario % minutosEmMs) / 1000);
 
-    document.getElementById('contador').innerHTML = `${distanciaAteAniversario}d`;
+    document.getElementById('contador').innerHTML = `${distanciaAteAniversario}d ${horaAteAniversario}h ${MinutosAteAniversario}m ${segundosAteAniversario}s`;
 
     if (diasAteAniversario < 0) {
         clearInterval(contaOsDias);
